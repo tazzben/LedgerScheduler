@@ -1,0 +1,26 @@
+h1. Ledger Scheduler
+
+This application moves transactions from a scheduled transaction file to a main "ledger":"Ledger":https://github.com/jwiegley/ledger file.  A very common task would be to use this app as part of a cron job after using "Depreciate":https://github.com/tazzben/DepreciateForLedger/wiki
+
+h2. Options:
+
+|-s "&lt;File Path&gt;", --source="&lt;File Path&gt;"|File containing scheduled transactions|
+|-d "&lt;File Path&gt;", --destination="&lt;File Path&gt;"|Main ledger file where scheduled transactions should be saved|
+
+h2. Example:
+
+<pre>
+./scheduler --source="depreciate.txt" --destination="accounting.txt"
+</pre>
+
+h2. Installing:
+
+Installing scheduler is pretty easy. Because Macs and Linux already include Python, all you need to do is download the scheduler source, decompress it, and move it wherever you want. Of course, if you use scheduler a lot you might want to "add your installation location to your PATH variable":http://kb.wbpsystems.com/index.php/article/setting-your-path-variable.
+
+On Windows, you need to download "Python 2.x":http://www.python.org/download/ and install it before installing scheduler.  Or install the version of scheduler containing Python. 
+
+h2. Download:
+
+Windows (Zip file, Contains Python):"https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger_dist.zip":https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger_dist.zip?raw=true
+Windows (Zip file): "https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.zip":https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.zip?raw=true
+Max/Linux/Etc (tar.gz file): "https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.tar.gz":https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.tar.gz?raw=true
