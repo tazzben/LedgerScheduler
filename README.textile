@@ -21,6 +21,6 @@ On Windows, you need to download "Python 2.x":http://www.python.org/download/ an
 
 h2. Download:
 
-Windows (Zip file, Contains Python):"https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger_dist.zip":https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger_dist.zip?raw=true
-Windows (Zip file): "https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.zip":https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.zip?raw=true
-Max/Linux/Etc (tar.gz file): "https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.tar.gz":https://github.com/tazzben/csvToLedger/blob/Release_1/dist/csvToLedger.tar.gz?raw=true
+Windows (Zip file, Contains Python):"https://github.com/tazzben/LedgerScheduler/blob/master/dist/scheduler_dist.zip":https://github.com/tazzben/LedgerScheduler/blob/master/dist/scheduler_dist.zip?raw=true
+Windows (Zip file): "https://github.com/tazzben/LedgerScheduler/blob/master/dist/scheduler.zip":https://github.com/tazzben/LedgerScheduler/blob/master/dist/scheduler.zip?raw=true
+Max/Linux/Etc (tar.gz file): "https://github.com/tazzben/LedgerScheduler/blob/master/dist/scheduler.tar.gz":https://github.com/tazzben/LedgerScheduler/blob/master/dist/scheduler.tar.gz?raw=true
