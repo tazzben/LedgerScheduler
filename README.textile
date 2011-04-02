@@ -1,6 +1,6 @@
 h1. Ledger Scheduler
 
-This application moves transactions from a scheduled transaction file to a main "ledger":"Ledger":https://github.com/jwiegley/ledger file.  A very common task would be to use this app as part of a cron job after using "Depreciate":https://github.com/tazzben/DepreciateForLedger/wiki
+This application moves transactions from a scheduled transaction file to a main "ledger":https://github.com/jwiegley/ledger file.  A very common task would be to use this app as part of a cron job after using "Depreciate":https://github.com/tazzben/DepreciateForLedger/wiki.
 
 h2. Options:
 
