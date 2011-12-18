@@ -1,0 +1,3 @@
+projectDirectory = "$CWD"
+windowTitle      = "$TM_DISPLAYNAME — LedgerScheduler"
+fileChooserGlob  = "{{src,Shared/include}/**/*.{py,md,sh,textile},target{,s},Makefile{,.*},.tm_properties}"
