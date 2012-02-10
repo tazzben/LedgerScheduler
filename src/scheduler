@@ -48,8 +48,11 @@ def ParseFile(s,d):
 	if os.path.isfile(d):
 		
 		fout = codecs.open(d, "a+", "utf-8")
-		fout.seek(-1, os.SEEK_END)
-		test = fout.read(1)
+		if os.path.getsize(d)>0:
+			fout.seek(-1, os.SEEK_END)
+			test = fout.read(1)
+		else:
+			test = "\n"
 		if test != "\n":	
 			writenewline = True
 		
