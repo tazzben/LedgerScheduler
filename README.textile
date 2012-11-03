@@ -13,6 +13,17 @@ h2. Example:
 ./scheduler --source="depreciate.txt" --destination="accounting.txt"
 </pre>
 
+h2. The Super Easy Way to Install (Macports)
+
+You can install this application using MacPorts!  Type the following:
+
+<pre>
+sudo port -v selfupdate
+sudo port install LedgerScheduler
+</pre>
+
+This method takes care of all dependancies and can manage updates for you.  For information on installing MacPorts, please visit "their site":http://www.macports.org/install.php.
+
 h2. Installing:
 
 Installing scheduler is pretty easy. Because Macs and Linux already include Python, all you need to do is download the scheduler source, decompress it, and move it wherever you want. Of course, if you use scheduler a lot you might want to "add your installation location to your PATH variable":http://kb.wbpsystems.com/index.php/article/setting-your-path-variable.
