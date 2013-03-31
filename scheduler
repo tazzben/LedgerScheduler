@@ -1,0 +1,107 @@
+#!/usr/bin/env python
+import optparse
+import os
+import platform
+import sys
+import codecs
+import datetime
+from dateutil.parser import parse
+import re
+import shutil
+import time
+
+def myNewLine():
+	if platform.system() == 'Windows':
+		return "\r\n"
+	else:
+		return "\n"
+
+def isReturnFile(myfile):
+	if os.path.abspath(os.path.expanduser(myfile.strip())) != False:
+		return os.path.abspath(os.path.expanduser(myfile.strip()))
+	else:
+		print 'You can\'t save to that location'
+		sys.exit()
+		
+def fileExists(value):
+	if os.path.isfile(os.path.expanduser(value.strip())):
+		return os.path.abspath(os.path.expanduser(value.strip()))
+	else:
+		print "I can't find the source file"
+		sys.exit()
+
+def checkDate(mstr):
+	try:
+	 	mdate = parse(mstr.strip())
+		if mdate < datetime.datetime.today():
+			return True
+		else:
+			return False
+	except Exception as inst:
+		return False
+	
+
+def ParseFile(s,d):
+	rf = codecs.open(s, "r", "utf-8")
+	wf = codecs.open(s+"~", "w", "utf-8")
+	writenewline = False
+	if os.path.isfile(d):
+		
+		fout = codecs.open(d, "a+", "utf-8")
+		if os.path.getsize(d)>0:
+			fout.seek(-1, os.SEEK_END)
+			test = fout.read(1)
+		else:
+			test = "\n"
+		if test != "\n":	
+			writenewline = True
+		
+	else:
+		fout = codecs.open(d, "w", "utf-8")
+		
+				
+	pattern = re.compile("^([\\d\\/-]+)",re.U)
+	tabpattern = re.compile("^([\s]+)",re.U)
+	midtransaction = False;
+	for line in rf:
+		wline = pattern.match(line)
+		if wline != None and checkDate(wline.group(1)):
+			midtransaction = True;
+			if writenewline:
+				fout.write(unicode(myNewLine()))
+				writenewline = False
+			fout.write(line)
+		elif midtransaction and tabpattern.match(line) != None:
+			fout.write(line)
+		else:
+			midtransaction = False;
+			wf.write(line)
+	fout.close()
+	wf.close()
+	rf.close()
+	shutil.move(s+"~", s)
+	return True
+
+def main():
+	desc = 'Scheduler tool to move transactions to a ledger file'
+	p = optparse.OptionParser(description=desc)
+	p.add_option('--source', '-s', dest="source", help="File containing scheduled transactions", default='', metavar='"<File Path>"')
+	p.add_option('--destination', '-d', dest="destination", help="Main ledger file where scheduled transactions should be saved", default='', metavar='"<File Path>"')
+	(options, arguments) = p.parse_args();
+	
+	if len(options.source.strip())>0 and len(options.destination.strip())>0:
+		source = fileExists(options.source.strip())
+		destination = isReturnFile(options.destination.strip())
+		s = ParseFile(source,destination)
+		if s:
+			print 'File Processed'
+		else:
+			print 'Error'
+	else:
+		print 'You must specify the source and destination files'
+		sys.exit()
+		
+	
+
+if __name__ == '__main__':
+	main()
